@@ -8,8 +8,11 @@ module.exports = {
     filename: "bundle.js",
   },
   resolve: {
-    extensions: [".js", ".jsx"], // nos arquivos jsx, js qd fizemos uma importacao de outro arquivo nao precisamos botar a extensao dele por conta dessa config
+    extensions: [".js", ".jsx"], // *nos arquivos jsx, js qd fizemos uma importacao de outro arquivo nao precisamos botar a extensao dele por conta dessa config
   },
+  devServer: {
+    static: path.resolve(__dirname, "public"),
+  }, // * para automatizar a chamada do webpack qd tiver alguma alteracao
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "public", "index.html"),
@@ -20,7 +23,7 @@ module.exports = {
       {
         test: /\.jsx$/,
         exclude: /node_modules/,
-        use: "babel-loader", // intregracao entre o babel e o webpack
+        use: "babel-loader", // *intregracao entre o babel e o webpack
       },
     ],
   },
