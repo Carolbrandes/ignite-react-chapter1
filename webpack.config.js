@@ -1,6 +1,11 @@
-const path = require("path"); // * para colocar o caminho de acordo com sistema operacional
-const HtmlWebpackPlugin = require("html-webpack-plugin"); // * para nao precisar colocar no index.html a chamada do script da pasta bundle (p nao ter q lidar com possiveis alteracoes do caminho do arquivo) geramos no dist o arquivo html tb q ja chama o arquivo bundle.js
-const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin"); // *e utilizado para qd tiver alguma alteracao no cod nao zerar todos os estados
+// * para colocar o caminho de acordo com sistema operacional
+const path = require("path");
+
+// * para nao precisar colocar no index.html a chamada do script da pasta bundle (p nao ter q lidar com possiveis alteracoes do caminho do arquivo) geramos no dist o arquivo html tb q ja chama o arquivo bundle.js
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
+// *utilizado para qd tiver alguma alteracao no cod nao zerar todos os estados
+const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 
 const isDevelopment = process.env.NODE_ENV !== "production";
 
