@@ -29,6 +29,11 @@ module.exports = {
         exclude: /node_modules/,
         use: "babel-loader", // *intregracao entre o babel e o webpack
       },
+      {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        use: ["style-loader", "css-loader"], // *config para importar css
+      },
     ],
   },
 };
