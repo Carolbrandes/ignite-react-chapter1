@@ -1,6 +1,7 @@
 const path = require("path"); // * para colocar o caminho de acordo com sistema operacional
 
 module.exports = {
+  mode: "development",
   entry: path.resolve(__dirname, "src", "index.jsx"),
   output: {
     path: path.resolve(__dirname, "dist"),
