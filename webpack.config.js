@@ -1,5 +1,6 @@
 const path = require("path"); // * para colocar o caminho de acordo com sistema operacional
 const HtmlWebpackPlugin = require("html-webpack-plugin"); // * para nao precisar colocar no index.html a chamada do script da pasta bundle (p nao ter q lidar com possiveis alteracoes do caminho do arquivo) geramos no dist o arquivo html tb q ja chama o arquivo bundle.js
+const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin"); // *e utilizado para qd tiver alguma alteracao no cod nao zerar todos os estados
 
 const isDevelopment = process.env.NODE_ENV !== "production";
 
@@ -16,18 +17,27 @@ module.exports = {
   },
   devServer: {
     static: path.resolve(__dirname, "public"),
+    hot: true, // *para funcionar o ReactRefreshWebpackPlugin
   }, // * para automatizar a chamada do webpack qd tiver alguma alteracao
   plugins: [
+    isDevelopment && new ReactRefreshWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "public", "index.html"),
     }),
-  ],
+  ].filter(Boolean), // * usando esse filter ele remove valores booleanos,
   module: {
     rules: [
       {
         test: /\.jsx$/,
         exclude: /node_modules/,
-        use: "babel-loader", // *intregracao entre o babel e o webpack
+        use: {
+          loader: "babel-loader",
+          options: {
+            plugins: [
+              isDevelopment && require.resolve("react-refresh/babel"),
+            ].filter(Boolean),
+          },
+        }, // *para funcionar o ReactRefreshWebpackPlugin
       },
       {
         test: /\.scss$/,
