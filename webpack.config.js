@@ -1,8 +1,11 @@
 const path = require("path"); // * para colocar o caminho de acordo com sistema operacional
 const HtmlWebpackPlugin = require("html-webpack-plugin"); // * para nao precisar colocar no index.html a chamada do script da pasta bundle (p nao ter q lidar com possiveis alteracoes do caminho do arquivo) geramos no dist o arquivo html tb q ja chama o arquivo bundle.js
+
+const isDevelopment = process.env.NODE_ENV !== "production";
+
 module.exports = {
-  mode: "development",
-  devtool: "eval-source-map", // *deixa cod legivel, consigo ver exatamente como cod esta
+  mode: isDevelopment ? "development" : "production",
+  devtool: isDevelopment ? "eval-source-map" : "source-map", // *deixa cod legivel, consigo ver exatamente como cod esta
   entry: path.resolve(__dirname, "src", "index.jsx"),
   output: {
     path: path.resolve(__dirname, "dist"),
