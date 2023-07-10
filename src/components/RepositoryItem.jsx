@@ -1,4 +1,8 @@
 export default function RepositoryItem({ repository }) {
+  console.log(
+    "🚀 ~ file: RepositoryItem.jsx:2 ~ RepositoryItem ~ repository:",
+    repository
+  );
   const { name, description, link } = repository;
   return (
     <li>

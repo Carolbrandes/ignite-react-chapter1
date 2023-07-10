@@ -1,4 +1,5 @@
 import RepositoryItem from "./RepositoryItem";
+import "../styles/repositories.scss";
 
 export default function RepositoryList() {
   const repository = {
