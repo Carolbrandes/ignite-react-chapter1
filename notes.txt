@@ -4,6 +4,9 @@ comando p/ executar babel: yarn babel src/index.jsx --out-file dist/bundle.js
 
 comando p/ executar webpack e react: yarn webpack (manual) e com webpack dev server yarn webpack serve
 
+comando p/ criar o arquivo tsconfig: yarn tsc --init
+
+
 
 
 
