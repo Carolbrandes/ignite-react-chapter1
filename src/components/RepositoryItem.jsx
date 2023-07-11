@@ -1,14 +1,14 @@
-export default function RepositoryItem({ repository }) {
+export default function RepositoryItem({ repositorie }) {
   console.log(
-    "🚀 ~ file: RepositoryItem.jsx:2 ~ RepositoryItem ~ repository:",
-    repository
+    "🚀 ~ file: repositorieItem.jsx:2 ~ repositorieItem ~ repositorie:",
+    repositorie
   );
-  const { name, description, link } = repository;
+  const { name, description, html_url } = repositorie;
   return (
     <li>
       <strong>{name}</strong>
       <p>{description}</p>
-      <a href={link}>acessar repositorio</a>
+      <a href={html_url}>acessar repositorio</a>
     </li>
   );
 }
